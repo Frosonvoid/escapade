@@ -1,75 +1,72 @@
-# React + TypeScript + Vite
+# Escapade Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern landing page application built with React 19, TypeScript, Vite, Supabase, and Tailwind CSS.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Prerequisites & Requirements
 
-## React Compiler
+Before getting started, make sure developers have the following installed on their system:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Node.js
+- **Version:** `v18.0.0` or higher (`v20.x` or `v22.x` recommended)
+- **Download:** [nodejs.org](https://nodejs.org/)
 
-## Expanding the ESLint configuration
+### 2. Package Manager (`pnpm` recommended)
+This project uses `pnpm` for fast and strict dependency management (`pnpm-lock.yaml`).
+- **Install pnpm:**
+  ```bash
+  npm install -g pnpm
+  ```
+  *(Alternative: `npm` can also be used, but `pnpm` is recommended).*
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 3. Git
+- **Download:** [git-scm.com](https://git-scm.com/)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+### 1. Clone the Repository
+```bash
+git clone <repository-url>
+cd escapade
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+### 2. Install Dependencies
+```bash
+pnpm install
 ```
+
+### 3. Environment Setup
+Create a `.env.local` file in the root directory with the following variables:
+
+```env
+VITE_SUPABASE_URL=your_supabase_url_here
+VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key_here
+```
+
+---
+
+## 📜 Available Scripts
+
+In the project directory, you can run:
+
+| Command | Description |
+| :--- | :--- |
+| `pnpm dev` | Starts the local development server with HMR. |
+| `pnpm build` | Runs TypeScript checks (`tsc -b`) and builds for production. |
+| `pnpm preview` | Previews the production build locally. |
+| `pnpm lint` | Runs ESLint to check for code quality and style errors. |
+
+---
+
+## 🧰 Tech Stack
+
+- **Framework:** [React 19](https://react.dev/)
+- **Build Tool:** [Vite 8](https://vite.dev/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Backend / DB Client:** [@supabase/supabase-js](https://supabase.com/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Linter & Formatter:** ESLint & Prettier
+
