@@ -1,4 +1,6 @@
 import heroBg from '../assets/HERO_BG.jpg'
+import hero1 from '../assets/HERO_1.png'
+import hero2 from '../assets/HERO_2.png'
 
 export function HeroSection() {
   return (
@@ -12,6 +14,30 @@ export function HeroSection() {
         backgroundAttachment: 'fixed',
       }}
     >
+      {/* HERO_1: Astronaut — bottom right, partially overflowing right & bottom edges */}
+      <img
+        src={hero1}
+        alt="Astronaut"
+        className="pointer-events-none select-none absolute z-20 drop-shadow-2xl object-contain"
+        style={{
+          width: 'clamp(220px, 34vw, 580px)',
+          bottom: '-2vh',
+          right: '-2vw',
+        }}
+      />
+
+      {/* HERO_2: Spaceship — bottom left, partially overflowing left & bottom edges */}
+      <img
+        src={hero2}
+        alt="Spaceship"
+        className="pointer-events-none select-none absolute z-20 drop-shadow-2xl object-contain"
+        style={{
+          width: 'clamp(140px, 20vw, 360px)',
+          bottom: '-2vh',
+          left: '4vw',
+        }}
+      />
+
       <div className="relative max-w-5xl mx-auto text-center space-y-8 z-10">
         <h1 className="font-orbitron font-extrabold tracking-tight uppercase leading-none text-white">
           <span className="block text-white text-2xl sm:text-4xl md:text-5xl font-large tracking-[0.2em] mb-2">
