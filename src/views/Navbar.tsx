@@ -8,6 +8,7 @@ interface NavbarProps {
   mobileMenuOpen: boolean
   onToggleMobileMenu: () => void
   onCloseMobileMenu: () => void
+  dashboard?: boolean // added this to reuse navbar on admin dashboard
 }
 
 function TypewriterText({
@@ -51,7 +52,12 @@ export function Navbar({
   mobileMenuOpen,
   onToggleMobileMenu,
   onCloseMobileMenu,
+   dashboard = false,
 }: NavbarProps) {
+  //to know if its in home or admin dashboard
+ const displayedNavSections = dashboard
+    ? navSections.filter((link) => link.id === 'home')
+    : navSections
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass-nav">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -77,12 +83,12 @@ export function Navbar({
 
         {/* Desktop Navigation Links (Typewriter Animation for Tabs & Pure White Bolder/Larger Text) */}
         <nav className="hidden md:flex items-center gap-8 font-orbitron">
-          {navSections.map((link, index) => {
+          {displayedNavSections.map((link, index) => {
             const isActive = activeSection === link.id
             return (
               <a
                 key={link.id}
-                href={link.href}
+                href={dashboard ? '/' : link.href} //allows the nav in dashboard goes back to home
                 className={`text-base sm:text-lg font-extrabold uppercase tracking-wider transition-opacity duration-300 py-1 ${
                   isActive ? 'text-white opacity-100' : 'text-white opacity-80 hover:opacity-100'
                 }`}
