@@ -26,14 +26,35 @@ export function Footer() {
         </p>
 
         <div className="flex items-center gap-6 font-orbitron text-xs">
-          <a href="#home" className="hover:text-[#00f2ff] transition-colors">
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault()
+              window.history.pushState(null, '', '/')
+              document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })
+            }}
+            className="hover:text-[#00f2ff] transition-colors"
+          >
             Home
           </a>
-          <a href="#tickets" className="hover:text-[#00f2ff] transition-colors">
+          <a
+            href="/tickets"
+            onClick={(e) => {
+              e.preventDefault()
+              window.history.pushState(null, '', '/tickets')
+              document.getElementById('tickets')?.scrollIntoView({ behavior: 'smooth' })
+            }}
+            className="hover:text-[#00f2ff] transition-colors"
+          >
             Tickets
           </a>
           <a
-            href="#leaderboard"
+            href="/leaderboard"
+            onClick={(e) => {
+              e.preventDefault()
+              window.history.pushState(null, '', '/leaderboard')
+              document.getElementById('leaderboard')?.scrollIntoView({ behavior: 'smooth' })
+            }}
             className="hover:text-[#00f2ff] transition-colors"
           >
             Leaderboard

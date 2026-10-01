@@ -1,0 +1,19 @@
+import { Routes, Route } from 'react-router-dom' //install react-router-dom (npm install react-router-dom)
+import App from '../App'
+import Login from '../views/Login'
+import Dashboard from '../views/Dashboard'
+
+export default function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/home" element={<App />} />
+      <Route path="/story" element={<App />} />
+      <Route path="/mission" element={<App />} />
+      <Route path="/tickets" element={<App />} />
+      <Route path="/leaderboard" element={<App />} />
+      <Route path="/admin" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+  )
+}
