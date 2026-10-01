@@ -7,6 +7,11 @@ export default function AppRoutes() {
      <Routes>
       <Route path="/" element={<App />} />
       <Route path="/admin" element={<App adminLogin />} />
+      <Route path="/home" element={<App />} />
+      <Route path="/story" element={<App />} />
+      <Route path="/mission" element={<App />} />
+      <Route path="/tickets" element={<App />} />
+      <Route path="/leaderboard" element={<App />} />
       <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   )
