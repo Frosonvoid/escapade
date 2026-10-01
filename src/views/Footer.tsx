@@ -63,7 +63,8 @@ export const Footer: React.FC<FooterProps> = ({
       >
         {/* Nav Links & Info */}
         <div className="relative z-[2] flex flex-col gap-[10px]">
-          <h3 className="text-[26px] font-bold tracking-[2px] uppercase text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
+          {/* Muted Aurora Borealis Text Gradient (Soft Teal -> Ice Blue -> Dusty Lavender) */}
+          <h3 className="text-[26px] md:text-[32px] font-black tracking-[3px] uppercase bg-gradient-to-r from-[#62c9a5] via-[#5daec7] to-[#9d7cb8] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
             {heading}
           </h3>
           <nav className="flex items-center gap-[6px] text-[15px] font-normal">
@@ -71,7 +72,7 @@ export const Footer: React.FC<FooterProps> = ({
               <React.Fragment key={item.label}>
                 <a
                   href={item.href}
-                  className="relative text-white/75 no-underline px-[10px] py-[4px] rounded-[5px] overflow-hidden inline-block transition-colors duration-250 z-[1] hover:text-white before:content-[''] before:absolute before:top-0 before:left-0 before:w-0 before:h-full before:bg-white/20 before:rounded-[4px] before:transition-[width] before:duration-500 before:ease-[cubic-bezier(0.4,0,0.2,1)] before:z-[-1] hover:before:w-full"
+                  className="relative text-white/80 no-underline px-[10px] py-[4px] rounded-[5px] overflow-hidden inline-block transition-colors duration-250 z-[1] hover:text-white before:content-[''] before:absolute before:top-0 before:left-0 before:w-0 before:h-full before:bg-white/20 before:rounded-[4px] before:transition-[width] before:duration-500 before:ease-[cubic-bezier(0.4,0,0.2,1)] before:z-[-1] hover:before:w-full"
                 >
                   {item.label}
                 </a>
