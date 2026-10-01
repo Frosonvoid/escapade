@@ -22,7 +22,13 @@ export function ScrollReveal({
   className = '',
   style,
 }: ScrollRevealProps) {
-  const { ref, isVisible } = useScrollReveal()
+  const { ref, isVisible, isAbove } = useScrollReveal()
+
+  const translateY = isVisible
+    ? 'translateY(0)'
+    : isAbove
+    ? `translateY(-${distance}px)`
+    : `translateY(${distance}px)`
 
   return (
     <div
@@ -31,8 +37,8 @@ export function ScrollReveal({
       style={{
         ...style,
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : `translateY(${distance}px)`,
-        transition: `opacity 0.7s ease ${delay}, transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) ${delay}`,
+        transform: translateY,
+        transition: `opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${isVisible ? delay : '0ms'}, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${isVisible ? delay : '0ms'}`,
         willChange: 'opacity, transform',
       }}
     >

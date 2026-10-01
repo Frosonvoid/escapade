@@ -8,9 +8,10 @@ interface UseScrollRevealOptions {
 export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
   options: UseScrollRevealOptions = {}
 ) {
-  const { threshold = 0.15, rootMargin = '0px 0px -60px 0px' } = options
+  const { threshold = 0.15, rootMargin = '0px 0px -40px 0px' } = options
   const ref = useRef<T>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [isAbove, setIsAbove] = useState(false)
 
   useEffect(() => {
     const el = ref.current
@@ -18,9 +19,9 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.unobserve(el) // animate once
+        setIsVisible(entry.isIntersecting)
+        if (!entry.isIntersecting) {
+          setIsAbove(entry.boundingClientRect.top < 0)
         }
       },
       { threshold, rootMargin }
@@ -30,5 +31,5 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
     return () => observer.disconnect()
   }, [threshold, rootMargin])
 
-  return { ref, isVisible }
+  return { ref, isVisible, isAbove }
 }
