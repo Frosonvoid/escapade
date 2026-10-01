@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Footer Component</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0c0b10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* dummy main page */
+    .page-content {
+      flex: 1;
+    }
+
+    /* footer container */
+    .site-footer {
+      width: 100%;
+      color: #ffffff;
+      margin-top: auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      overflow: hidden;
+    }
+
+    /* top nav */
+    .footer-top {
+      position: relative;
+      background-image: url('images/background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #12131a; 
+      padding: 36px 64px; 
+      
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-top::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45); 
+      z-index: 1;
+    }
+
+    .footer-info, 
+    .footer-socials {
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-heading {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    /* nav links */
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    .footer-nav a {
+      position: relative;
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: inline-block;
+      transition: color 0.25s ease;
+      z-index: 1;
+    }
+
+    .footer-nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
+    }
+
+    .footer-nav a:hover {
+      color: #ffffff;
+    }
+
+    .footer-nav a:hover::before {
+      width: 100%;
+    }
+
+    .footer-nav .divider {
+      color: rgba(255, 255, 255, 0.4);
+      user-select: none;
+    }
+
+    /* social buttons & feedback */
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .feedback-btn {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 10px 18px;
+      border-radius: 24px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    .feedback-btn:hover {
+      background: #ffffff;
+      color: #0c0b10;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .social-btn {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      overflow: hidden;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .social-btn:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+    }
+
+    .social-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .footer-bottom {
+      background-color: #0c0b10;
+      width: 100%;
+      padding: 10px 0 0 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* escapade banner */
+    .giant-banner {
+      font-size: 13.8vw;
+      font-weight: 700;
+      color: #8d929f;
+      text-transform: uppercase;
+      line-height: 0.82;
+      user-select: none;
+      text-align: center;
+      white-space: nowrap;
+      width: 100vw;
+      display: block;
+      margin: 0;
+      letter-spacing: -0.018em;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="page-content"></main>
+
+  <footer class="site-footer">
+
+    <!-- nav links -->
+    <div class="footer-top">
+      <div class="footer-info">
+        <h3 class="footer-heading">KEEP THE TORCH BURNING</h3>
+        <nav class="footer-nav">
+          <a href="#home">Home</a>
+          <span class="divider">|</span>
+          <a href="#story">Story</a>
+          <span class="divider">|</span>
+          <a href="#mission">Mission</a>
+          <span class="divider">|</span>
+          <a href="#tickets">Tickets</a>
+          <span class="divider">|</span>
+          <a href="#leaderboard">Leaderboard</a>
+        </nav>
+      </div>
+
+      <!-- socials & feedback -->
+      <div class="footer-socials">
+        <a href="mailto:gdg.usls@gmail.com?subject=Inquiry%20-%20Escapade" class="feedback-btn">CONTACT US!</a>
+        <a href="https://www.instagram.com/gdg.usls/" class="social-btn" aria-label="Instagram">
+          <img src="images/insta.png" alt="Instagram" />
+        </a>
+        <a href="mailto:gdg@usls.edu.ph" class="social-btn" aria-label="Gmail">
+          <img src="images/gmail.png" alt="Gmail" />
+        </a>
+        <a href="https://www.facebook.com/dsc.usls" class="social-btn" aria-label="Facebook">
+          <img src="images/fb.png" alt="Facebook" />
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <h1 class="giant-banner">ESCAPADE</h1>
+    </div>
+  </footer>
+
+</body>
+</html>
